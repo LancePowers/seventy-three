@@ -2,4 +2,5 @@ module.exports = {
     TOKEN_SECRET: process.env.TOKEN_SECRET || 'my-precious',
     MONGO_URI: process.env.MONGO_URI || 'mongodb://localhost:27017/mean-token-auth',
     SALT_WORK_FACTOR: 10,
+    GOOGLE_SECRET: '2b4UTs_cX0l191IKww0vSywJ'
 };
