@@ -26,8 +26,9 @@
             first: '',
             last: '',
             phone: '',
-            role: ''
-
+            role: '',
+            firstLogin: true,
+            groupCode: ''
         };
 
         // *** Handle switching from login to signup *** //
@@ -51,7 +52,6 @@
                 .then(function (response) {
                     console.log('login returned: ', response);
                     $window.localStorage.currentUser = JSON.stringify(response.data.user);
-                    //! replace with service? 
                     user.set(response.data.user);
                     //                    $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
                     $location.path('/home');
@@ -69,7 +69,6 @@
                 .then(function (response) {
                     console.log('google returned: ', response);
                     $window.localStorage.currentUser = JSON.stringify(response.data.user);
-                    //! replace with service?
                     user.set(response.data.user);
                     //                    $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
                     console.log(response);
@@ -87,7 +86,7 @@
             $auth.signup(vm.user)
                 .then(function (response) {
                     console.log('signup returned: ', response);
-                    $location.path('/login');
+                    vm.type = ('Login');
                 })
                 .catch(function (response) {
                     toast.showCustomToast(response.data.message);

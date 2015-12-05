@@ -14,7 +14,8 @@
             user.email = info.email;
             user.phone = info.phone;
             user.role = info.role;
-
+            user.firstLogin = info.firstLogin;
+            user.groupCode = info.groupCode;
         }
 
         return user;

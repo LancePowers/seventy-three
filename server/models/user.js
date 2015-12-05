@@ -29,6 +29,12 @@ var User = new Schema({
     },
     googleProfileID: {
         type: String
+    },
+    firstLogin: {
+        type: Boolean
+    },
+    groupCode: {
+        type: String
     }
 });
 

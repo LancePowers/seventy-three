@@ -62,13 +62,15 @@ router.post('/signup', function (req, res) {
                 message: 'Email is already taken'
             });
         }
+        console.log(req.body);
         var user = new User({
             email: req.body.email,
             password: req.body.password,
             first: req.body.first,
             last: req.body.last,
             phone: req.body.phone,
-            role: req.body.role
+            role: req.body.role,
+            firstLogin: req.body.firstLogin
         });
         user.save(function () {
             var token = createToken(user);
@@ -185,6 +187,7 @@ router.post('/google', function (req, res) {
                     var user = new User();
                     user.googleProfileID = profile.sub;
                     user.email = profile.email;
+                    user.firstLogin = true;
                     user.save(function (err) {
                         var token = createToken(user);
                         res.send({
