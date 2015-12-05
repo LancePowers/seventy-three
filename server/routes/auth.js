@@ -64,7 +64,11 @@ router.post('/signup', function (req, res) {
         }
         var user = new User({
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            first: req.body.first,
+            last: req.body.last,
+            phone: req.body.phone,
+            role: req.body.role
         });
         user.save(function () {
             var token = createToken(user);

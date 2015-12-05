@@ -1,13 +1,14 @@
-app.controller('navbarCtrl', function($scope, $window, $auth, $location) {
+angular.module('app')
+    .controller('navbarCtrl', function ($scope, $window, $auth, $location) {
 
-  $scope.isAuthenticated = function() {
-    return $auth.isAuthenticated();
-  };
+        $scope.isAuthenticated = function () {
+            return $auth.isAuthenticated();
+        };
 
-  $scope.logout = function() {
-    $auth.logout();
-    delete $window.localStorage.currentUser;
-    $location.path('/');
-  };
+        $scope.logout = function () {
+            $auth.logout();
+            delete $window.localStorage.currentUser;
+            $location.path('/');
+        };
 
-});
+    });

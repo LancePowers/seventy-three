@@ -1,0 +1,37 @@
+<h1 class="text-center">{{vm.type}}</h1>
+<form method="post" ng-submit="vm.submit()" name="loginForm" novalidate>
+    <!--    NAME-->
+    <md-input-container ng-if="vm.type === 'Sign Up'" class="form-group">
+        <input class="form-control input-lg" type="text" name="first" ng-model="vm.user.first" placeholder="First Name" required autofocus>
+    </md-input-container>
+    <md-input-container ng-if="vm.type === 'Sign Up'">
+        <input class="form-control input-lg" type="text" name="last" ng-model="vm.user.last" placeholder="Last Name" required autofocus>
+    </md-input-container>
+
+    <!--    EMAIL-->
+    <md-input-container>
+        <input class="form-control input-lg" type="text" name="email" ng-model="vm.user.email" placeholder="Email" required autofocus>
+    </md-input-container>
+
+    <!--    PASSWORD-->
+    <md-input-container>
+        <input class="form-control input-lg" type="password" name="password" ng-model="vm.user.password" placeholder="Password" required>
+    </md-input-container>
+
+    <!--    PHONE-->
+    <md-input-container ng-if="vm.type === 'Sign Up'" class="form-group">
+        <input class="form-control input-lg" type="text" name="phone" ng-model="vm.user.phone" placeholder="Phone" ng-maxlength="10" ng-minlength="10" ng-pattern="/^\d{10}$/" autofocus>
+        <span class="error-message" ng-show="myform.phoneNumber.$dirty && myform.phoneNumber.$invalid">The phone number field should be 10 digits</span>
+    </md-input-container>
+
+    <!--    ROLE-->
+    <md-select ng-if="vm.type === 'Sign Up'" ng-model="vm.user.role" placeholder="Role">
+        <md-option ng-repeat="role in vm.roles" value="{{role}}">{{role}}</md-option>
+    </md-select>
+
+    <button type="submit" class="btn btn-lg btn-block btn-primary">{{vm.type}}</button>
+    <br>
+</form>
+
+<button ng-if="vm.type === 'Login'" class="btn btn-md btn-block btn-primary" ng-click="vm.changeType()">Create New Account</button>
+<button class="btn btn-block btn-success" ng-click="vm.authenticate('google')">Sign in with Google</button>
