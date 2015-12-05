@@ -1,5 +1,6 @@
 <h1 class="text-center">{{vm.type}}</h1>
 <form method="post" ng-submit="vm.submit()" name="loginForm" novalidate>
+
     <!--    NAME-->
     <md-input-container ng-if="vm.type === 'Sign Up'" class="form-group">
         <input class="form-control input-lg" type="text" name="first" ng-model="vm.user.first" placeholder="First Name" required autofocus>

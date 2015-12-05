@@ -14,6 +14,7 @@
             user.email = info.email;
             user.phone = info.phone;
             user.role = info.role;
+
         }
 
         return user;

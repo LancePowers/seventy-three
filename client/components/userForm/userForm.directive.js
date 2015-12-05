@@ -35,7 +35,7 @@
         vm.changeType = function () {
             vm.type = 'Sign Up';
         }
-        vm.roles = ['Patient', 'Ally', 'Professional', 'Mentor']
+        vm.roles = ['Patient', 'Ally', 'Professional']
         vm.submit = function () {
             if (vm.type === 'Login') {
                 vm.login();
