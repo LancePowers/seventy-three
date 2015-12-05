@@ -1,16 +1,20 @@
-<div ng-controller="AppCtrl" ng-cloak>
-    <md-content>
-        <md-list>
-            <md-subheader class="md-no-sticky">3 line item</md-subheader>
-            <md-list-item class="md-3-line md-long-text">
-                <img ng-src="{{todos[0].face}}?25" class="md-avatar" alt="{{todos[0].who}}" />
-                <div class="md-list-item-text">
-                    <h3>{{ todos[0].who }}</h3>
-                    <p>
-                        Secondary line text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa quam. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                    </p>
-                </div>
-            </md-list-item>
-        </md-list>
-    </md-content>
+<div layout="column" ng-cloak>
+    <div flex="60">
+        <md-content class="chat-window">
+            <md-list>
+                <md-list-item ng-repeat="comment in vm.comments" class="md-3-line md-long-text">
+                    <img ng-src="{{comment.face}}" class="md-avatar" alt="{{comment.who}}" />
+                    <div class="md-list-item-text">
+                        <h3>{{ comment.who }}</h3>
+                        <h4>{{comment.what}}</h4>
+                        <p>
+                            {{comment.notes}}
+                        </p>
+                    </div>
+                    <md-icon md-svg-icon="communication:messenger" ng-click="vm.expandComment" aria-label="Open Chat" class="md-secondary md-hue-3"></md-icon>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+    <div flex="30">Test</div>
 </div>

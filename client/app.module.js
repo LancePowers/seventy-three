@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app', ['ngRoute', 'satellizer', 'ngMaterial', 'app.components'])
+    angular.module('app', ['ngRoute', 'satellizer', 'ngMaterial', 'app.components', 'ngMdIcon'])
 
     .config(function ($routeProvider, $authProvider, $locationProvider) {
         // *** satellizer settings *** //

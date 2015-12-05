@@ -5,7 +5,8 @@
         'app.components.chat',
         'app.components.userForm',
         'app.components.chart',
-        'app.components.navbar'
+        'app.components.navbar',
+        'app.components.tabContainer'
     ]);
 
 })();
