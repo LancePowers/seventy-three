@@ -1,0 +1,13 @@
+<md-dialog aria-label="Conversation" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Conversation</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="vm.cancel()">
+                    <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <comment-form data-type="{{vm.group}}"></comment-form>
+</md-dialog>

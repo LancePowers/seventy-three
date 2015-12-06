@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="components/navbar/navbar.css">
     <link rel="stylesheet" type="text/css" href="components/chat/chat.css">
     <link rel="stylesheet" type="text/css" href="components/tabContainer/tabContainer.css">
+    <link rel="stylesheet" type="text/css" href="components/commentForm/commentForm.css">
 
 
 </head>
@@ -26,9 +27,8 @@
 <body ng-app="app">
 
     <div ng-controller="navbarCtrl">
-
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top nav-shadow" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -104,9 +104,14 @@
     <script type="text/javascript" src="components/tabContainer/tabContainer.module.js"></script>
     <script type="text/javascript" src="components/tabContainer/tabContainer.directive.js"></script>
 
+    <!--    COMMENT FORM-->
+    <script type="text/javascript" src="components/commentForm/commentForm.module.js"></script>
+    <script type="text/javascript" src="components/commentForm/commentForm.directive.js"></script>
+
     <!--    SERVICES-->
     <script type="text/javascript" src="services/user.service.js"></script>
     <script type="text/javascript" src="services/toast.service.js"></script>
+    <script type="text/javascript" src="services/comment.service.js"></script>
 
 
     <script type="text/javascript" src="controllers/navbar.js"></script>

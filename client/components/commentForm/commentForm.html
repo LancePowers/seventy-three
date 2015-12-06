@@ -1,0 +1,26 @@
+<form>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <form method="post" ng-submit="vm.submit()" name="loginForm" novalidate>
+
+                <!--    NAME-->
+                <md-input-container class="form-group">
+                    <input class="form-control input-lg" type="text" name="what" ng-model="vm.comment.what" placeholder="Subject" required autofocus>
+                </md-input-container>
+                <md-input-container>
+                    <input class="form-control input-lg" type="text" name="comment" ng-model="vm.comment.notes" placeholder="Message" required autofocus>
+                </md-input-container>
+            </form>
+            <md-dialog-actions layout="row">
+                <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+                    More on Wikipedia
+                </md-button>
+                <span flex></span>
+                <md-button ng-click="vm.submit()">
+                    Send
+                </md-button>
+                <md-button ng-click="answer('useful')" style="margin-right:20px;">
+                    Useful
+                </md-button>
+            </md-dialog-actions>
+</form>

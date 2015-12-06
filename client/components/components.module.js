@@ -6,7 +6,8 @@
         'app.components.userForm',
         'app.components.chart',
         'app.components.navbar',
-        'app.components.tabContainer'
+        'app.components.tabContainer',
+        'app.components.commentForm'
     ]);
 
 })();

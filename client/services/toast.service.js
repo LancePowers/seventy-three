@@ -47,29 +47,7 @@
                 }
             })
         };
-        toast.showSimpleToast = function () {
-            $mdToast.show(
-                $mdToast.simple()
-                .content('Simple Toast!')
-                .position(toast.getToastPosition())
-                .hideDelay(3000)
-            );
-        };
-        toast.showActionToast = function () {
-            var toast = $mdToast.simple()
-                .textContent('Action Toast!')
-                .action('OK')
-                .highlightAction(false)
-                .position(toast.getToastPosition());
-            $mdToast.show(toast).then(function (response) {
-                if (response == 'ok') {
-                    alert('You clicked \'OK\'.');
-                }
-            });
-        };
-        //        toast.setMessage = function (cb) {
-        //            toast.sendMessage = cb;
-        //        }
+
         return toast;
     }
 })();
