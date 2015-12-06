@@ -15,7 +15,7 @@
             user.phone = info.phone;
             user.role = info.role;
             user.firstLogin = info.firstLogin;
-            user.patient = "info.patient";
+            user.patient = info.patient;
         }
 
         return user;

@@ -28,7 +28,7 @@
             phone: '',
             role: '',
             firstLogin: true,
-            groupCode: ''
+            patient: ''
         };
 
         // *** Handle switching from login to signup *** //
