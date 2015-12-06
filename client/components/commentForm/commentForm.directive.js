@@ -29,7 +29,12 @@
         }
         vm.submit = function () {
             vm.comment.who = user;
-            vm.comment.group = vm.type;
+            vm.comment.type = vm.type;
+            vm.comment.patient = user.patient;
+            $http.post('/comments', vm.comment)
+                .then(function (result) {
+                    console.log(result);
+                })
             console.log(vm.comment)
         }
         vm.comment = {

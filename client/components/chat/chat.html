@@ -1,7 +1,13 @@
 <div class="chat-controls" id="popupContainer" ng-cloak>
     <div>
         <md-content class="chat-window">
+            <div layout="row" layout-align="center center">
+
+                <ng-md-icon icon="add_circle" aria-label="Open Chat" size="48" class="md-primary" ng-click="vm.expandComment($event)"></ng-md-icon>
+
+            </div>
             <md-list>
+
                 <md-list-item ng-repeat="comment in vm.comments" class="md-3-line md-long-text">
 
 
