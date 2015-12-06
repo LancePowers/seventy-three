@@ -40,6 +40,8 @@
         vm.submit = function () {
             if (vm.type === 'Login') {
                 vm.login();
+            } else if (vm.type === 'Update') {
+                vm.update();
             } else {
                 vm.signup();
             }
@@ -67,12 +69,17 @@
 
             $auth.authenticate(provider)
                 .then(function (response) {
-                    console.log('google returned: ', response);
                     $window.localStorage.currentUser = JSON.stringify(response.data.user);
                     user.set(response.data.user);
-                    //                    $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-                    console.log(response);
-                    $location.path('/home');
+                    console.log('user set to: ', user);
+                    // $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                    console.log(response.data.user.firstLogin);
+                    if (response.data.user.firstLogin) {
+                        toast.showCustomToast('Success! Please complete the sign-up process.');
+                        vm.type = 'Update';
+                    } else {
+                        $location.path('/home');
+                    }
                 })
                 .catch(function (response) {
                     toast.showCustomToast(response.data.message);
@@ -81,10 +88,30 @@
 
         }
 
+        vm.update = function () {
+            var data = {
+                email: user.email,
+                phone: vm.user.phone,
+                role: vm.user.role,
+                patient: vm.user.patient
+            }
+            $http.put('/auth/update', data)
+                .then(function (response) {
+                    console.log(response.data);
+                    user.set(response.data.user);
+                    $location.path('/home');
+                })
+                .catch(function (response) {
+                    toast.showCustomToast(response.data.message);
+                    console.log(response.data);
+                });
+        }
+
         vm.signup = function () {
 
             $auth.signup(vm.user)
                 .then(function (response) {
+                    toast.showCustomToast('Success! Please login.');
                     console.log('signup returned: ', response);
                     vm.type = ('Login');
                 })

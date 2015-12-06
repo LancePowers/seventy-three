@@ -140,6 +140,7 @@ router.post('/google', function (req, res) {
             headers: headers,
             json: true
         }, function (err, response, profile) {
+            console.log(profile);
             if (profile.error) {
                 return res.status(500).send({
                     message: profile.error.message
@@ -165,6 +166,10 @@ router.post('/google', function (req, res) {
                         }
                         user.googleProfileID = profile.sub;
                         user.email = profile.email;
+                        user.first = profile.given_name;
+                        user.last = profile.family_name;
+                        user.face = profile.picture;
+                        console.log(user)
                         user.save(function () {
                             var token = createToken(user);
                             res.send({
@@ -188,6 +193,9 @@ router.post('/google', function (req, res) {
                     user.googleProfileID = profile.sub;
                     user.email = profile.email;
                     user.firstLogin = true;
+                    user.first = profile.given_name;
+                    user.last = profile.family_name;
+                    user.face = profile.picture;
                     user.save(function (err) {
                         var token = createToken(user);
                         res.send({
@@ -201,5 +209,30 @@ router.post('/google', function (req, res) {
     });
 });
 
-
+router.put('/update', function (req, res) {
+    console.log(req.body)
+    var query = {
+        email: req.body.email
+    };
+    var update = {
+        phone: req.body.phone,
+        role: req.body.role,
+        patient: req.body.patient || '',
+        firstLogin: false
+    };
+    var options = {
+        new: true
+    };
+    User.findOneAndUpdate(query, update, options, function (err, user) {
+        if (err) {
+            res.send({
+                error: err,
+                message: 'There seems to be a problem updating you account.'
+            })
+        };
+        res.send({
+            user: user
+        })
+    })
+})
 module.exports = router;

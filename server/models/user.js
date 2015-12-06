@@ -33,7 +33,10 @@ var User = new Schema({
     firstLogin: {
         type: Boolean
     },
-    groupCode: {
+    patient: {
+        type: String
+    },
+    face: {
         type: String
     }
 });
