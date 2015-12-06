@@ -16,13 +16,13 @@
     }
 
     function ChatLink(scope, element, attrs, controller, transcludeFn) {
-        controller.setGroup(attrs.group);
+        controller.init(attrs.group);
     }
 
 
-    ChatController.$inject = ['$http', '$mdDialog', 'comments'];
+    ChatController.$inject = ['$http', '$mdDialog', 'comments', 'user'];
 
-    function ChatController($http, $mdDialog, comments) {
+    function ChatController($http, $mdDialog, comments, user) {
         var vm = this;
         vm.expandComment = function (ev) {
             $mdDialog.show({
@@ -37,10 +37,17 @@
                 }
             })
         }
-        vm.setGroup = function (group) {
+
+        vm.init = function (group) {
             vm.group = group;
-            vm.comments = comments.get(group);
+            comments.set(user.patient, vm.group, function (results) {
+                console.log(results)
+                vm.comments = results;
+            });
         }
+
+
+
 
     }
 
@@ -49,7 +56,7 @@
     function ChatDialogController($mdDialog, group) {
         var vm = this;
         vm.group = group;
-        console.log(vm.group)
+
         vm.hide = function () {
             $mdDialog.hide();
         };

@@ -15,9 +15,9 @@
     }
 
 
-    UserFormController.$inject = ['$http', '$auth', '$window', '$location', 'user', 'toast'];
+    UserFormController.$inject = ['$http', '$auth', '$window', '$location', 'user', 'toast', 'comments'];
 
-    function UserFormController($http, $auth, $window, $location, user, toast) {
+    function UserFormController($http, $auth, $window, $location, user, toast, comments) {
         var vm = this;
 
         vm.user = {

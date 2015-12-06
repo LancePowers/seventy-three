@@ -166,9 +166,6 @@ router.post('/google', function (req, res) {
                         }
                         user.googleProfileID = profile.sub;
                         user.email = profile.email;
-                        user.first = profile.given_name;
-                        user.last = profile.family_name;
-                        user.face = profile.picture;
                         console.log(user)
                         user.save(function () {
                             var token = createToken(user);
@@ -186,7 +183,8 @@ router.post('/google', function (req, res) {
                 }, function (err, existingUser) {
                     if (existingUser) {
                         return res.send({
-                            token: createToken(existingUser)
+                            token: createToken(existingUser),
+                            user: existingUser
                         });
                     }
                     var user = new User();

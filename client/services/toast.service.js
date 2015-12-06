@@ -14,7 +14,6 @@
             left: false,
             right: true
         };
-        console.log($mdToast)
         toast.toastPosition = angular.extend({}, last);
         toast.getToastPosition = function () {
             sanitizePosition();
