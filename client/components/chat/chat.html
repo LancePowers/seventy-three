@@ -20,7 +20,7 @@
                             {{comment.notes}}
                         </p>
                     </div>
-                    <ng-md-icon icon="messenger" ng-click="vm.expandComment($event, comment)" aria-label="Open Chat" class="md-primary"></ng-md-icon>
+                    <md-icon md-svg-src="img/icons/comment.svg" ng-click="vm.expandComment($event, comment)" aria-label="Open Chat" class="icon-48" ng-class="{'md-warn': !comment.answers.length}"></md-icon>
                 </md-list-item>
             </md-list>
         </md-content>

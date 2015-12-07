@@ -31,27 +31,21 @@
         <!-- Navigation -->
         <md-toolbar class="nav-shadow" role="navigation">
             <div class="md-toolbar-tools">
-                <!-- Brand and toggle get grouped for better mobile display -->
 
                 <md-button class="md-fab md-mini" ng-if="!isAuthenticated()" a href="#/">
-                    <ng-md-icon icon="close"></ng-md-icon>
+                    <md-icon md-svg-src="img/icons/home.svg"></md-icon>
                 </md-button>
                 <md-button class="md-fab md-mini" ng-if="isAuthenticated()" href="#/home">
-                    <md-icon icon="close"></md-icon>
+                    <md-icon md-svg-src="img/icons/home.svg"></md-icon>
                 </md-button>
                 <md-button class="md-fab md-mini" ng-if="!isAuthenticated()" href="#/login">
-                    <md-icon md-font-set="material-icons">exit_to_app</md-icon>
+                    <md-icon md-svg-src="img/icons/login.svg"></md-icon>
                 </md-button>
                 <md-button class="md-fab md-mini" ng-if="isAuthenticated()" ng-click="logout()" href="">
-                    <md-icon md-font-set="material-icons">exit_to_app</md-icon>
+                    <md-icon md-svg-src="img/icons/logout.svg"></md-icon>
                 </md-button>
-
-
             </div>
-            <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-    </md-toolbar>
+        </md-toolbar>
 
     </div>
 
@@ -85,6 +79,7 @@
     <script type="text/javascript" src="app.module.js"></script>
 
     <!--    COMPONENTS-->
+    <script type="text/javascript" src="components/app.theme.js"></script>
     <script type="text/javascript" src="components/components.module.js"></script>
     <!--    CHART-->
     <script type="text/javascript" src="components/chart/chart.module.js"></script>
