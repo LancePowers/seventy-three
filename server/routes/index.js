@@ -12,7 +12,6 @@ router.get('/comments/:id', function (req, res, err) {
             patient: req.params.id
         })
         .then(function (result) {
-            console.log(result);
             res.json(result);
         })
         .catch(function (err) {
@@ -23,16 +22,13 @@ router.get('/comments/:id', function (req, res, err) {
 });
 
 router.post('/comments', function (req, res, err) {
-    console.log(req.body);
-
+    console.log(req.body.who.face);
     new Comment({
-            who: req.body.who.first,
+            who: req.body.who,
             what: req.body.what,
             type: req.body.type,
             patient: req.body.who.patient,
-            phone: req.body.who.phone,
             notes: req.body.notes,
-            face: req.body.face
         }).saveQ()
         .then(function (result) {
             console.log(result)

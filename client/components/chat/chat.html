@@ -11,10 +11,10 @@
                 <md-list-item ng-repeat="comment in vm.comments" class="md-3-line md-long-text">
 
 
-                    <img ng-src="{{comment.face}}" class="md-avatar" alt="{{comment.who}}" />
+                    <img ng-src="{{comment.who.face || 'img/icon-user-default.png'}}" class="md-avatar" alt="'img/icon-user-default.png'" />
 
                     <div class="md-list-item-text">
-                        <h3>{{ comment.who }}</h3>
+                        <h3>{{ comment.who.first }}</h3>
                         <h4>{{comment.what}}</h4>
                         <p>
                             {{comment.notes}}
