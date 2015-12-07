@@ -9,6 +9,9 @@ var Comment = new Schema({
     what: String,
     type: String,
     patient: String,
-    notes: String
+    notes: String,
+    answers: Array,
+    created: Date,
+    updated: Date
 })
 module.exports = mongoose.model('Comments', Comment);

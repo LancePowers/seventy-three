@@ -41,6 +41,22 @@ router.post('/comments', function (req, res, err) {
         .done();
 })
 
+router.put('/comments', function (req, res, err) {
+    console.log(req.body);
+    Comment.findOneAndUpdateQ({
+            _id: req.body._id
+        }, req.body)
+        .then(function (result) {
+            console.log(result)
+            res.json(result);
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.json(err);
+        })
+        .done();
+})
+
 
 router.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '../../client/index.html'));

@@ -3,7 +3,7 @@
         <md-content class="chat-window">
             <div layout="row" layout-align="center center">
 
-                <ng-md-icon icon="add_circle" aria-label="Open Chat" size="48" class="md-primary" ng-click="vm.expandComment($event)"></ng-md-icon>
+                <ng-md-icon icon="add_circle" aria-label="Open Chat" size="48" class="md-primary" ng-click="vm.expandComment($event, 'new')"></ng-md-icon>
 
             </div>
             <md-list>
@@ -20,7 +20,7 @@
                             {{comment.notes}}
                         </p>
                     </div>
-                    <ng-md-icon icon="messenger" ng-click="vm.expandComment($event)" aria-label="Open Chat" class="md-primary"></ng-md-icon>
+                    <ng-md-icon icon="messenger" ng-click="vm.expandComment($event, comment)" aria-label="Open Chat" class="md-primary"></ng-md-icon>
                 </md-list-item>
             </md-list>
         </md-content>

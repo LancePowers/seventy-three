@@ -20,6 +20,9 @@
             .when('/login', {
                 templateUrl: 'partials/login.html',
             })
+            .when('/patient', {
+                templateUrl: 'partials/patient.html',
+            })
             .otherwise('/');
 
     });

@@ -77,6 +77,8 @@
                     if (response.data.user.firstLogin) {
                         toast.showCustomToast('Success! Please complete the sign-up process.');
                         vm.type = 'Update';
+                    } else if (response.data.user.role === 'Patient') {
+                        $location.path('/patient')
                     } else {
                         $location.path('/home');
                     }

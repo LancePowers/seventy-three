@@ -24,7 +24,8 @@
 
     function ChatController($http, $mdDialog, comments, user) {
         var vm = this;
-        vm.expandComment = function (ev) {
+        vm.expandComment = function (ev, comment) {
+            vm.config.comment = comment;
             $mdDialog.show({
                 parent: angular.element(document.body),
                 controller: ChatDialogController,
@@ -33,20 +34,20 @@
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 locals: {
-                    group: vm.group
+                    config: vm.config
                 }
             })
         }
 
         vm.init = function (group) {
-            vm.group = group;
+            vm.config = {};
+            vm.config.type = group;
             var watcher = function (comment) {
-                if (comment.type === vm.group) {
+                if (comment.type === vm.config.type) {
                     vm.comments.push(comment);
                 }
             }
-            comments.set(user.patient, vm.group, watcher, function (results) {
-                console.log(results)
+            comments.set(user.patient, vm.config.type, watcher, function (results) {
                 vm.comments = results;
             });
         }
@@ -58,9 +59,9 @@
 
 
 
-    function ChatDialogController($mdDialog, group) {
+    function ChatDialogController($mdDialog, config) {
         var vm = this;
-        vm.group = group;
+        vm.config = config;
 
         vm.hide = function () {
             $mdDialog.hide();

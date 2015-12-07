@@ -1,20 +1,53 @@
 <form>
     <md-dialog-content>
         <div class="md-dialog-content">
-            <form method="post" ng-submit="vm.submit()" name="loginForm" novalidate>
 
-                <!--    NAME-->
-                <md-input-container class="form-group">
-                    <input class="form-control input-lg" type="text" name="what" ng-model="vm.comment.what" placeholder="Subject" required autofocus>
+            <!--            NEW QUESTION-->
+            <form method="post" ng-submit="vm.submit()" name="loginForm" novalidate>
+                <md-input-container class="form-group" ng-if="vm.new">
+                    <input class="form-control input-lg" type="text" name="what" ng-model="vm.comment.what" placeholder="Question" required autofocus>
                 </md-input-container>
-                <md-input-container>
-                    <input class="form-control input-lg" type="text" name="comment" ng-model="vm.comment.notes" placeholder="Message" required autofocus>
+                <md-input-container ng-if="vm.new">
+                    <input class="form-control input-lg" type="text" name="comment" ng-model="vm.comment.notes" placeholder="Details" required autofocus>
                 </md-input-container>
             </form>
+
+
+            <!--            ANSWER QUESTION-->
+            <md-list ng-hide="vm.new">
+                <md-list-item class="md-3-line md-long-text">
+                    <img ng-src="{{vm.comment.who.face || 'img/icon-user-default.png'}}" class="md-avatar" alt="'img/icon-user-default.png'" />
+
+                    <div class="md-list-item-text">
+                        <h3>{{ vm.comment.who.first }}</h3>
+                        <h4>{{vm.comment.what}}</h4>
+                        <p>
+                            {{vm.comment.notes}}
+                        </p>
+                    </div>
+
+                </md-list-item>
+
+                <md-list-item flex-offset="10" ng-repeat="answer in vm.comment.answers" class="md-3-line md-long-text">
+                    <img ng-src="{{answer.face || 'img/icon-user-default.png'}}" class="md-avatar" alt="'img/icon-user-default.png'" />
+                    <div class="md-list-item-text">
+                        <h3>{{ answer.who }}</h3>
+                        <p>{{answer.answer}}</p>
+                    </div>
+
+                </md-list-item>
+
+                <md-input-container>
+                    <input class="form-control input-lg" type="text" name="answer" ng-model="vm.newAnswer.answer" placeholder="Answer" required>
+                </md-input-container>
+            </md-list>
             <md-dialog-actions layout="row">
                 <span flex></span>
                 <md-button ng-click="vm.submit()">
                     Send
+                </md-button>
+                <md-button ng-click="$mdDialog.cancel('comment-form');">
+                    Close
                 </md-button>
             </md-dialog-actions>
 </form>
