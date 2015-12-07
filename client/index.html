@@ -7,6 +7,7 @@
     <!--    EXTERNAL-->
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc1/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!--    MAIN-->
     <link rel="stylesheet" type="text/css" href="main.css">
@@ -28,36 +29,34 @@
 
     <div ng-controller="navbarCtrl">
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top nav-shadow" role="navigation">
-            <div class="container">
+        <md-toolbar class="nav-shadow" role="navigation">
+            <div class="md-toolbar-tools">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a ng-if="!isAuthenticated()" a href="#/" class="navbar-brand">Home</a>
-                    <a ng-if="isAuthenticated()" href="#/home" class="navbar-brand">Home</a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li ng-if="!isAuthenticated()"><a href="#/login">Login</a></li>
-                        <li ng-if="isAuthenticated()"><a ng-click="logout()" href="">Logout</a></li>
-                        <li ng-if="isAuthenticated()"><a href="#/profile">Profile</a></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+
+                <md-button class="md-fab md-mini" ng-if="!isAuthenticated()" a href="#/">
+                    <ng-md-icon icon="close"></ng-md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini" ng-if="isAuthenticated()" href="#/home">
+                    <md-icon icon="close"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini" ng-if="!isAuthenticated()" href="#/login">
+                    <md-icon md-font-set="material-icons">exit_to_app</md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini" ng-if="isAuthenticated()" ng-click="logout()" href="">
+                    <md-icon md-font-set="material-icons">exit_to_app</md-icon>
+                </md-button>
+
+
             </div>
-            <!-- /.container -->
-        </nav>
+            <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+    </md-toolbar>
 
     </div>
 
     <!-- Page Content -->
-    <div class="container" id="content">
+    <div class="container page-content" id="content">
 
         <div class="row">
             <div class="col-lg-12 text-center">
