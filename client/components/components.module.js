@@ -7,7 +7,8 @@
         'app.components.chart',
         'app.components.navbar',
         'app.components.tabContainer',
-        'app.components.commentForm'
+        'app.components.commentForm',
+        'app.components.inviteForm'
     ]);
 
 })();

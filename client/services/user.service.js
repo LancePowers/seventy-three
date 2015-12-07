@@ -3,9 +3,9 @@
     angular.module('app')
         .factory('user', user);
 
-    user.$inject = [];
+    user.$inject = ['$auth'];
 
-    function user() {
+    function user($auth) {
         var user = {};
 
         user.set = function (info) {
@@ -18,6 +18,16 @@
             user.patient = info.patient;
             user.face = info.face;
         }
+        user.isAuthenticated = function () {
+            return $auth.isAuthenticated();
+        };
+        user.isPatient = function () {
+            return (user.role === 'Patient');
+        };
+        user.isAlly = function () {
+            return (user.role === 'Ally');
+        };
+        console.log(user.isAuthenticated());
 
         return user;
     }

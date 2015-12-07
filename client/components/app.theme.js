@@ -59,29 +59,29 @@ angular.module('app').config(function ($mdThemingProvider) {
         .definePalette('customWarn',
             customWarn);
 
-    var customBackground = {
-        '50': '#ffffff',
-        '100': '#ffffff',
-        '200': '#ffffff',
-        '300': '#ffffff',
-        '400': '#ffffff',
-        '500': '#fff',
-        '600': '#f2f2f2',
-        '700': '#e6e6e6',
-        '800': '#d9d9d9',
-        '900': '#cccccc',
-        'A100': '#ffffff',
-        'A200': '#ffffff',
-        'A400': '#ffffff',
-        'A700': '#bfbfbf'
-    };
-    $mdThemingProvider
-        .definePalette('customBackground',
-            customBackground);
+    //    var customBackground = {
+    //        '50': '#ffffff',
+    //        '100': '#ffffff',
+    //        '200': '#ffffff',
+    //        '300': '#ffffff',
+    //        '400': '#ffffff',
+    //        '500': '#fff',
+    //        '600': '#f2f2f2',
+    //        '700': '#e6e6e6',
+    //        '800': '#d9d9d9',
+    //        '900': '#cccccc',
+    //        'A100': '#ffffff',
+    //        'A200': '#ffffff',
+    //        'A400': '#ffffff',
+    //        'A700': '#bfbfbf'
+    //    };
+    //    $mdThemingProvider
+    //        .definePalette('customBackground',
+    //            customBackground);
 
     $mdThemingProvider.theme('default')
         .primaryPalette('customPrimary')
         .accentPalette('customAccent')
         .warnPalette('customWarn')
-        .backgroundPalette('customBackground')
+        //        .backgroundPalette('customBackground')
 });

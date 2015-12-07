@@ -18,5 +18,6 @@
 
     function TabContainerController() {
         var vm = this;
+        // enter array for ng-repeat for dynamic tabs
     }
 })();
