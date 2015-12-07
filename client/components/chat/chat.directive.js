@@ -40,7 +40,12 @@
 
         vm.init = function (group) {
             vm.group = group;
-            comments.set(user.patient, vm.group, function (results) {
+            var watcher = function (comment) {
+                if (comment.type === vm.group) {
+                    vm.comments.push(comment);
+                }
+            }
+            comments.set(user.patient, vm.group, watcher, function (results) {
                 console.log(results)
                 vm.comments = results;
             });

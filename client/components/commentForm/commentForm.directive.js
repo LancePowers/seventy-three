@@ -20,9 +20,9 @@
         controller.setType(attrs.type);
     }
 
-    CommentFormController.$inject = ['user', '$http'];
+    CommentFormController.$inject = ['user', '$http', 'comments'];
 
-    function CommentFormController(user, $http) {
+    function CommentFormController(user, $http, comments) {
         var vm = this;
         vm.setType = function (type) {
             vm.type = type;
@@ -33,6 +33,7 @@
             vm.comment.patient = user.patient;
             $http.post('/comments', vm.comment)
                 .then(function (result) {
+                    comments.update(result.data[0]);
                     console.log(result);
                 })
             console.log(vm.comment)

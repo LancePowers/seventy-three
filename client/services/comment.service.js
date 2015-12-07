@@ -7,8 +7,17 @@
 
     function comments($http) {
         var comments = {};
+        var watchers = [];
 
-        comments.set = function (patient, group, cb) {
+        comments.update = function (comment) {
+            console.log(watchers);
+            watchers.forEach(function (watcher) {
+                console.log(comment)
+                watcher(comment);
+            })
+        }
+        comments.set = function (patient, group, watcher, cb) {
+            watchers.push(watcher);
             $http.get('/comments/' + patient)
                 .then(function (results) {
                     console.log(results.data)
