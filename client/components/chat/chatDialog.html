@@ -1,4 +1,4 @@
-<md-dialog aria-label="Conversation" ng-cloak>
+<md-dialog aria-label="Conversation" id="comment-form" ng-cloak>
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -9,5 +9,5 @@
                 </md-button>
             </div>
         </md-toolbar>
-        <comment-form data-type="{{vm.group}}"></comment-form>
+        <comment-form data-type="{{vm.group}}" data.close="{{vm.hide}}"></comment-form>
 </md-dialog>

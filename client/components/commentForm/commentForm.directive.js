@@ -3,6 +3,7 @@
     angular.module('app.components.commentForm')
         .directive('commentForm', [commentFormDirective]);
 
+    //    DIRECTIVE
     function commentFormDirective() {
         return {
             restrict: 'E',
@@ -15,16 +16,19 @@
         }
     }
 
+    //    LINK
     function CommentFormLink(scope, element, attrs, controller, transcludeFn) {
-        console.log(attrs.type)
-        controller.setType(attrs.type);
+        controller.init(attrs.type);
     }
 
-    CommentFormController.$inject = ['user', '$http', 'comments'];
 
-    function CommentFormController(user, $http, comments) {
+    //    CONTROLLER
+    CommentFormController.$inject = ['user', '$http', 'comments', '$mdDialog'];
+
+    function CommentFormController(user, $http, comments, $mdDialog) {
         var vm = this;
-        vm.setType = function (type) {
+        console.log(close, vm.close);
+        vm.init = function (type) {
             vm.type = type;
         }
         vm.submit = function () {
@@ -34,7 +38,7 @@
             $http.post('/comments', vm.comment)
                 .then(function (result) {
                     comments.update(result.data[0]);
-                    console.log(result);
+                    $mdDialog.cancel('comment-form');
                 })
             console.log(vm.comment)
         }
