@@ -25,12 +25,12 @@
 
 
     //    CONTROLLER
-    CommentFormController.$inject = ['user', '$http', 'comments', '$mdDialog'];
+    CommentFormController.$inject = ['user', '$http', 'comments', '$mdDialog', 'emojis'];
 
-    function CommentFormController(user, $http, comments, $mdDialog) {
+    function CommentFormController(user, $http, comments, $mdDialog, emojis) {
         var vm = this;
 
-
+        // ***Init Function *** //
         vm.init = function (config) {
             vm.new = false;
             vm.type = config.type;
@@ -56,12 +56,20 @@
             }
         }
 
+        // *** Emoji Select *** //
+        vm.emojis = emojis;
+        vm.selectEmoji = function (index) {
+            vm.comment.emoji = vm.emojis[index];
+            vm.emojis[index].selected = true;
+        }
+
+
+        // *** Submit Functions *** //
         vm.submitComment = function () {
             vm.comment.who = user;
             vm.comment.type = vm.type;
             vm.comment.patient = user.patient;
             vm.comment.created = Date.now();
-            vm.comment.updated = Date.now();
             $http.post('/comments', vm.comment)
                 .then(function (result) {
                     comments.update(result.data[0]);
@@ -71,7 +79,7 @@
 
         vm.submitAnswer = function () {
             vm.comment.answers.push(vm.newAnswer);
-            vm.comment.updated = Date.now;
+            vm.comment.updated = Date.now();
             $http.put('/comments', vm.comment)
                 .then(function (result) {
                     console.log(result);

@@ -1,0 +1,10 @@
+.emoji {
+    max-height: 48px;
+    max-width: 48px;
+}
+
+.selected {
+    border: 2px;
+    border-color: darkslateblue;
+    background-color: chocolate;
+}

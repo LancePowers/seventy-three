@@ -5,12 +5,21 @@
             <!--            NEW QUESTION-->
             <form method="post" ng-submit="vm.submit()" name="loginForm" novalidate>
                 <md-input-container class="form-group" ng-if="vm.new">
-                    <input class="form-control input-lg" type="text" name="what" ng-model="vm.comment.what" placeholder="Question" required autofocus>
+                    <input class="form-control input-lg" type="text" name="what" ng-model="vm.comment.what" placeholder="Title" required autofocus>
                 </md-input-container>
                 <md-input-container ng-if="vm.new">
                     <input class="form-control input-lg" type="text" name="comment" ng-model="vm.comment.notes" placeholder="Details" required autofocus>
                 </md-input-container>
             </form>
+
+            <!--                CHECKIN-->
+
+
+            <md-button ng-if="vm.type === 'checkins'" aria-label="emoji" ng-repeat="emoji in vm.emojis" ng-click="vm.selectEmoji($index); isSelected=!isSelected;" ng-class="{'selected': isSelected}">
+                <img class="emoji" ng-src="{{emoji.src}}" />
+            </md-button>
+
+
 
 
             <!--            ANSWER QUESTION-->

@@ -2,9 +2,7 @@
     <div>
         <md-content class="chat-window">
             <div layout="row" layout-align="center center">
-
                 <ng-md-icon icon="add_circle" aria-label="Open Chat" size="48" class="md-primary" ng-click="vm.expandComment($event, 'new')"></ng-md-icon>
-
             </div>
             <md-list>
 
@@ -19,8 +17,10 @@
                         <p>
                             {{comment.notes}}
                         </p>
+                        <p>{{comment.created | date:"MM/dd/yyyy 'at' h:mma"}}</p>
                     </div>
-                    <md-icon md-svg-src="img/icons/comment.svg" ng-click="vm.expandComment($event, comment)" aria-label="Open Chat" class="icon-48" ng-class="{'md-warn': !comment.answers.length}"></md-icon>
+                    <img ng-if="comment.emoji" class="icon-36" ng-src="{{comment.emoji.src}}" />
+                    <md-icon ng-if="vm.config.type === 'questions'" md-svg-src="img/icons/comment.svg" ng-click="vm.expandComment($event, comment)" aria-label="Open Chat" class="icon-48" ng-class="{'md-warn': !comment.answers.length}"></md-icon>
                 </md-list-item>
             </md-list>
         </md-content>

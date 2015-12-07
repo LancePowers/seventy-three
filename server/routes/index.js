@@ -22,13 +22,15 @@ router.get('/comments/:id', function (req, res, err) {
 });
 
 router.post('/comments', function (req, res, err) {
-    console.log(req.body.who.face);
+    console.log(req.body);
     new Comment({
             who: req.body.who,
             what: req.body.what,
             type: req.body.type,
             patient: req.body.who.patient,
             notes: req.body.notes,
+            created: req.body.created,
+            emoji: req.body.emoji
         }).saveQ()
         .then(function (result) {
             console.log(result)

@@ -12,6 +12,7 @@ var Comment = new Schema({
     notes: String,
     answers: Array,
     created: Date,
-    updated: Date
+    updated: Date,
+    emoji: Object
 })
 module.exports = mongoose.model('Comments', Comment);

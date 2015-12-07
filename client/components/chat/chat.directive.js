@@ -24,6 +24,7 @@
 
     function ChatController($http, $mdDialog, comments, user) {
         var vm = this;
+
         vm.expandComment = function (ev, comment) {
             vm.config.comment = comment;
             $mdDialog.show({
@@ -49,6 +50,7 @@
             }
             comments.set(user.patient, vm.config.type, watcher, function (results) {
                 vm.comments = results;
+                console.log(results);
             });
         }
 
