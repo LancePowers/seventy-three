@@ -1,8 +1,11 @@
-/*
 #chip-container > md-chips-wrap > md-chip {
-    background: #777;
-}*/
+    min-width: 300px;
+}
 
 .toolbar-light {
     color: rgba(256, 256, 256, .9);
+}
+
+.add-pad {
+    padding: 5px;
 }

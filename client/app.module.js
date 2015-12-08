@@ -21,7 +21,7 @@
                 templateUrl: 'partials/login.html',
             })
             .when('/patient', {
-                templateUrl: 'partials/patient.html',
+                templateUrl: 'partials/patientHome.html',
             })
             .otherwise('/');
 

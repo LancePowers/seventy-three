@@ -1,8 +1,32 @@
 <div layout="column" ng-cloak class="md-whiteframe-2dp">
     <md-toolbar>
-        <h3 class="toolbar-light">Invite Supporters</h3>
+        <h3 class="toolbar-light">Build Your Team</h3>
     </md-toolbar>
     <md-content class="md-padding" layout="column">
-        <md-chips ng-model="vm.emails" readonly="vm.isReadOnly" placeholder="Enter an email" secondary-placeholder="Enter an email" id="chip-container"></md-chips>
+        <md-list>
+            <md-list-item>
+                <md-subheader class="md-no-sticky">Patient ID:</md-subheader>
+                <p>Your patient id is: {{vm.patientID}}</p>
+            </md-list-item>
+            <br>
+            <md-list-item>
+                <md-subheader class="md-no-sticky">Allies Email Addresses:</md-subheader>
+                <md-chips ng-model="vm.emails" readonly="vm.isReadOnly" placeholder="Add another.." secondary-placeholder="Press enter to add" id="chip-container"></md-chips>
+            </md-list-item>
+            <br>
+            <md-list-item class="md-padding">
+                <md-subheader class="md-no-sticky">Grant Permission:</md-subheader>
+                <p>I grant these individuals the ability to coordinate their efforts in finding me care.</p>
+                <md-checkbox ng-model="vm.isDisabled"></md-checkbox>
+            </md-list-item>
+            <br>
+            <md-list-item layout="column" layout-align="center center">
+                <md-button ng-disabled="!vm.isDisabled" class="md-fab" aria-label="send" ng-href="{{vm.mailTo()}}">
+                    <md-icon md-svg-src="img/icons/send.svg"></md-icon>
+                </md-button>
+                <div>{{vm.mailTo}}</div>
+                <md-subheader class="md-no-sticky">Send Invitations</md-subheader>
+            </md-list-item>
+        </md-list>
     </md-content>
 </div>

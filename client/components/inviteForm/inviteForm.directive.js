@@ -14,14 +14,18 @@
         }
     }
 
-    InviteFormController.$inject = ['$timeout', '$q'];
+    InviteFormController.$inject = ['$timeout', '$q', 'user'];
 
-    function InviteFormController($timeout, $q) {
+    function InviteFormController($timeout, $q, user) {
         var vm = this;
         vm.emails = [];
+        vm.patientID = user.patient;
         vm.isReadOnly = false;
+        vm.isDisabled = false;
+        vm.mailTo = function () {
+            return "mailto:" + vm.emails.join(',') + "?subject=SeventyTwo%20Invite&body=Thank%20you%20for%20joining%20my%20support%20team.%20My%20patient%20Id%20is" + vm.patientID;
+        }
 
-        vm.inviteEmail = "mailto:someone@yoursite.com?cc=someoneelse@theirsite.com, another@thatsite.com, me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body-goes-here"
         console.log(vm.test)
 
     }

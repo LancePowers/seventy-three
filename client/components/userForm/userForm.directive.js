@@ -56,7 +56,11 @@
                     $window.localStorage.currentUser = JSON.stringify(response.data.user);
                     user.set(response.data.user);
                     //                    $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-                    $location.path('/home');
+                    if (response.data.user.role === 'Patient') {
+                        $location.path('/patient')
+                    } else {
+                        $location.path('/home');
+                    }
                     console.log(user)
                 })
                 .catch(function (response) {

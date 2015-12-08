@@ -15,8 +15,12 @@
             user.phone = info.phone;
             user.role = info.role;
             user.firstLogin = info.firstLogin;
-            user.patient = info.patient;
             user.face = info.face;
+            if (user.isPatient()) {
+                user.patient = info._id;
+            } else {
+                user.patient = info.patient;
+            }
         }
         user.isAuthenticated = function () {
             return $auth.isAuthenticated();
