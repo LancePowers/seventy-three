@@ -1,6 +1,4 @@
-var config = require('../../_config' || '../altConfig');
-
-var client = require('twilio')(config.TWILIO_SID, config.TWILIO_TOKEN);
+var client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 var User = require('../models/user.js');
 
 function sendUpdates(patient, message) {

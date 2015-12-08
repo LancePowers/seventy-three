@@ -7,9 +7,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 
-// *** config file *** //
-var config = require('./altConfig');
-
 
 // *** express instance *** //
 var app = express();
@@ -31,7 +28,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 
 // *** mongoose ** //
-mongoose.connect(config.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI);
 
 // *** main routes *** //
 app.use('/', mainRoutes);

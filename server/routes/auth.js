@@ -5,7 +5,7 @@ var jwt = require('jwt-simple');
 var request = require('request');
 var qs = require('querystring');
 
-var config = require('../../_config' || '../altConfig');
+
 var User = require('../models/user.js');
 
 
@@ -20,7 +20,7 @@ function ensureAuthenticated(req, res, next) {
     // decode the token
     var header = req.headers.authorization.split(' ');
     var token = header[1];
-    var payload = jwt.decode(token, config.TOKEN_SECRET);
+    var payload = jwt.decode(token, process.env.TOKEN_SECRET);
     var now = moment().unix();
 
     // check if the token has expired
@@ -49,7 +49,7 @@ function createToken(user) {
         iat: moment().unix(),
         sub: user._id
     };
-    return jwt.encode(payload, config.TOKEN_SECRET);
+    return jwt.encode(payload, process.env.TOKEN_SECRET);
 }
 
 // *** register route (email and password) *** //
@@ -120,7 +120,7 @@ router.post('/google', function (req, res) {
     var params = {
         code: req.body.code,
         client_id: req.body.clientId,
-        client_secret: config.GOOGLE_SECRET,
+        client_secret: process.env.GOOGLE_SECRET,
         redirect_uri: req.body.redirectUri,
         grant_type: 'authorization_code'
     };
@@ -158,7 +158,7 @@ router.post('/google', function (req, res) {
                         });
                     }
                     var token = req.headers.authorization.split(' ')[1];
-                    var payload = jwt.decode(token, config.TOKEN_SECRET);
+                    var payload = jwt.decode(token, process.env.TOKEN_SECRET);
                     User.findById(payload.sub, function (err, user) {
                         if (!user) {
                             return res.status(400).send({
