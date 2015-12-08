@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 
 
 // *** config file *** //
-var config = require('../_config' || 'altConfig');
+var config = require('altConfig');
 
 
 // *** express instance *** //
