@@ -1,4 +1,4 @@
-var client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
+var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 var User = require('../models/user.js');
 
 function sendUpdates(patient, message) {

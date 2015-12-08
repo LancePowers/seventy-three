@@ -4,3 +4,4 @@ npm-debug.log
 _config.js
 /img
 /server/config/auth
+.env
