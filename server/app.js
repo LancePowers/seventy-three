@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 
 
 // *** config file *** //
-var config = require('../_config');
+var config = require('../../_config' || '../altConfig');
 
 
 // *** express instance *** //
@@ -23,7 +23,9 @@ var authRoutes = require('./routes/auth');
 // *** config middleware *** //
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
 
@@ -37,29 +39,29 @@ app.use('/auth', authRoutes);
 
 
 // *** handle 404 error *** //
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.use(function (req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 
 // *** error handlers *** //
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+    app.use(function (err, req, res, next) {
+        var status = err.status || 500;
+        res.status(status).send({
+            message: err.message,
+            error: err
+        });
+    });
+}
+app.use(function (err, req, res, next) {
     var status = err.status || 500;
     res.status(status).send({
-      message: err.message,
-      error: err
+        message: err.message,
+        error: err
     });
-  });
-}
-app.use(function(err, req, res, next) {
-  var status = err.status || 500;
-  res.status(status).send({
-    message: err.message,
-    error: err
-  });
 });
 
 module.exports = app;
