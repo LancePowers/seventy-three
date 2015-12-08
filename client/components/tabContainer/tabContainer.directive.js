@@ -10,8 +10,13 @@
             scope: {},
             controller: TabContainerController,
             controllerAs: 'vm',
-            bindToController: true
+            bindToController: true,
+            link: TabContainerLink
         }
+    }
+
+    function TabContainerLink(scope, element, attrs, controller, transcludeFn) {
+        controller.init(attrs.config);
     }
 
     TabContainerController.$inject = [];
@@ -31,13 +36,13 @@
                 vm.commVisible = true;
                 vm.tabs = [{
                     label: "Questions",
-                    group = "questions"
+                    group: "questions"
                     }, {
                     label: "Check-Ins",
-                    group = "checkins"
+                    group: "checkins"
                     }, {
                     label: "Messages",
-                    group = "messages"
+                    group: "messages"
                     }]
             }
             // enter array for ng-repeat for dynamic tabs

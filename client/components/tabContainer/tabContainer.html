@@ -1,22 +1,12 @@
 <div ng-cloak class="tabsdemoDynamicHeight md-whiteframe-2dp">
     <md-toolbar>
-        <h3 class="toolbar-light">Team Communication</h3>
+        <h3 class="toolbar-light">{{vm.title}}</h3>
     </md-toolbar>
     <md-content>
         <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="Questions">
+            <md-tab ng-repeat="tab in vm.tabs" label="{{tab.label}}">
                 <md-content class="md-padding tab-content">
-                    <chat data-group="questions"></chat>
-                </md-content>
-            </md-tab>
-            <md-tab label="Check-Ins">
-                <md-content class="md-padding tab-content">
-                    <chat data-group="checkins"></chat>
-                </md-content>
-            </md-tab>
-            <md-tab label="Messages">
-                <md-content class="md-padding tab-content">
-                    <chat data-group="messages"></chat>
+                    <chat ng-if="vm.commVisible" data-group="{{tab.group}}"></chat>
                 </md-content>
             </md-tab>
         </md-tabs>
