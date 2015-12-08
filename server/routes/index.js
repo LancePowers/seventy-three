@@ -1,13 +1,13 @@
 var path = require('path');
 var express = require('express');
 var router = express.Router();
-var Comment = require('../models/comments.js')
 
+var Comment = require('../models/comments.js')
+var twilio = require('../utilities/twilio.utility.js')
 
 
 router.get('/comments/:id', function (req, res, err) {
 
-    console.log(req.params.id)
     Comment.findQ({
             patient: req.params.id
         })
@@ -22,7 +22,6 @@ router.get('/comments/:id', function (req, res, err) {
 });
 
 router.post('/comments', function (req, res, err) {
-    console.log(req.body);
     new Comment({
             who: req.body.who,
             what: req.body.what,
@@ -33,6 +32,10 @@ router.post('/comments', function (req, res, err) {
             emoji: req.body.emoji
         }).saveQ()
         .then(function (result) {
+            if (result[0].type === 'checkins') {
+                var message = result[0].what + result[0].emoji.unicode + '\n -' + result[0].who.first;
+                twilio.sendUpdates(result[0].patient, message);
+            }
             console.log(result)
             res.json(result);
         })

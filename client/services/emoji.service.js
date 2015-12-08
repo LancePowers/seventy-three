@@ -8,37 +8,128 @@
     function emojis() {
         var emojis = [
             {
-                shortcode: ':stuck_out_tongue:'
-        }, {
-                shortcode: ':smiley:'
-        }, {
-                shortcode: ':grinning:'
-        }, {
-                shortcode: ':slight_frown:'
-        }, {
-                shortcode: ':unamused:'
-        }, {
-                shortcode: ':pensive:'
-        }, {
-                shortcode: ':worried:'
-        }, {
-                shortcode: ':angry:'
-        }, {
-                shortcode: ':cry:'
-        }, {
-                shortcode: ':frowning:'
-        }, {
-                shortcode: ':anguished:'
-        }, {
-                shortcode: ':tired_face:'
-        }, {
-                shortcode: ':sob:'
-        }, {
-                shortcode: ':sleeping:'
-        }];
+                unicode: '😀'
+            },
+            {
+                unicode: '😁'
+            },
+            {
+                unicode: '😂'
+            },
+            {
+                unicode: '😃'
+            },
+            {
+                unicode: '😄'
+            },
+            {
+                unicode: '😅'
+            },
+            {
+                unicode: '😆'
+            },
+            {
+                unicode: '😊'
+            },
+            {
+                unicode: '😋'
+            },
+            {
+                unicode: '😐'
+            },
+            {
+                unicode: '😥'
+            },
+            {
+                unicode: '😮'
+            },
+            {
+                unicode: '😯'
+            },
+            {
+                unicode: '😪'
+            },
+            {
+                unicode: '😫'
+            },
+            {
+                unicode: '😴'
+            },
+            {
+                unicode: '😌'
+            },
+            {
+                unicode: '😛'
+            },
+            {
+                unicode: '😜'
+            },
+            {
+                unicode: '😝'
+            },
+            {
+                unicode: '😒'
+            },
+            {
+                unicode: '😓'
+            },
+            {
+                unicode: '😔'
+            },
+            {
+                unicode: '😕'
+            },
+            {
+                unicode: '😖'
+            },
+            {
+                unicode: '😞'
+            },
+            {
+                unicode: '😟'
+            },
+            {
+                unicode: '😤'
+            },
+            {
+                unicode: '😢'
+            },
+            {
+                unicode: '😭'
+            },
+            {
+                unicode: '😦'
+            },
+            {
+                unicode: '😧'
+            },
+            {
+                unicode: '😨'
+            },
+            {
+                unicode: '😩'
+            },
+            {
+                unicode: '😬'
+            },
+            {
+                unicode: '😰'
+            },
+            {
+                unicode: '😱'
+            },
+            {
+                unicode: '😳'
+            },
+            {
+                unicode: '😡'
+            },
+            {
+                unicode: '😠'
+            }];
 
         emojis.forEach(function (emoji) {
-            emoji.src = angular.element(emojione.shortnameToImage(emoji.shortcode))[0].src
+            emoji.src = angular.element(emojione.unicodeToImage(emoji.unicode))[0].src
         });
 
         return emojis;
