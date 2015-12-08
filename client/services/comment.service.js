@@ -14,9 +14,9 @@
                 watcher(comment);
             })
         }
+
         comments.set = function (patient, group, watcher, cb) {
             watchers.push(watcher);
-            console.log('comments set is', group);
             $http.get('/comments/' + patient)
                 .then(function (results) {
                     comments.comments = results.data;

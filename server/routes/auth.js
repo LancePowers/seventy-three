@@ -149,33 +149,33 @@ router.post('/google', function (req, res) {
             // Step 3a. Link user accounts.
             if (req.headers.authorization) {
                 User.findOne({
-                    googleProfileID: profile.sub
-                }, function (err, existingUser) {
-                    if (existingUser) {
-                        return res.status(409).send({
-                            message: 'There is already a Google account that belongs to you'
-                        });
-                    }
-                    var token = req.headers.authorization.split(' ')[1];
-                    var payload = jwt.decode(token, config.TOKEN_SECRET);
-                    User.findById(payload.sub, function (err, user) {
-                        if (!user) {
-                            return res.status(400).send({
-                                message: 'User not found'
-                            });
-                        }
-                        user.googleProfileID = profile.sub;
-                        user.email = profile.email;
-                        console.log(user)
-                        user.save(function () {
-                            var token = createToken(user);
-                            res.send({
-                                token: token,
-                                user: user
-                            });
-                        });
-                    });
-                });
+     googleProfileID: profile.sub
+ }, function (err, existingUser) {
+     if (existingUser) {
+         return res.status(409).send({
+             message: 'There is already a Google account that belongs to you'
+         });
+     }
+     var token = req.headers.authorization.split(' ')[1];
+     var payload = jwt.decode(token, config.TOKEN_SECRET);
+     User.findById(payload.sub, function (err, user) {
+         if (!user) {
+             return res.status(400).send({
+                 message: 'User not found'
+             });
+         }
+         user.googleProfileID = profile.sub;
+         user.email = profile.email;
+         console.log(user)
+         user.save(function () {
+             var token = createToken(user);
+             res.send({
+                 token: token,
+                 user: user
+             });
+         });
+     });
+ });
             } else {
                 // Step 3b. Create a new user account or return an existing one.
                 User.findOne({
