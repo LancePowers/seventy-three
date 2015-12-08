@@ -18,6 +18,28 @@
 
     function TabContainerController() {
         var vm = this;
-        // enter array for ng-repeat for dynamic tabs
+        vm.init = function (config) {
+            if (config === 'communication') {
+                vm.initComm();
+            } else if (config === 'treatment') {
+                vm.initTreat();
+            }
+        }
+
+        vm.initComm = function () {
+                vm.title = 'Team Communication';
+                vm.commVisible = true;
+                vm.tabs = [{
+                    label: "Questions",
+                    group = "questions"
+                    }, {
+                    label: "Check-Ins",
+                    group = "checkins"
+                    }, {
+                    label: "Messages",
+                    group = "messages"
+                    }]
+            }
+            // enter array for ng-repeat for dynamic tabs
     }
 })();

@@ -1,0 +1,31 @@
+.survivors-grid md-grid-list {
+    margin: 8px;
+}
+
+.survivors-grid md-grid-tile {
+    transition: all 300ms ease-out 50ms;
+}
+
+.survivors-grid md-grid-tile md-icon {
+    padding-bottom: 32px;
+}
+
+.survivors-grid md-grid-tile md-grid-tile-footer {
+    background: rgba(0, 0, 0, 0.68);
+    height: 36px;
+}
+
+.survivors-grid md-grid-tile-footer figcaption {
+    width: 100%;
+}
+
+.survivors-grid md-grid-tile-footer figcaption h3 {
+    margin: 0;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+}
+
+.survivors-grid .grid-image {
+    background-size: cover;
+}

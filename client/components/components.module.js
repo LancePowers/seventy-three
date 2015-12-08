@@ -8,7 +8,8 @@
         'app.components.navbar',
         'app.components.tabContainer',
         'app.components.commentForm',
-        'app.components.inviteForm'
+        'app.components.inviteForm',
+        'app.components.survivors'
     ]);
 
 })();
