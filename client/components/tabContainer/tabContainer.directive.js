@@ -19,9 +19,9 @@
         controller.init(attrs.config);
     }
 
-    TabContainerController.$inject = [];
+    TabContainerController.$inject = ['treatments'];
 
-    function TabContainerController() {
+    function TabContainerController(treatments) {
         var vm = this;
         vm.init = function (config) {
             if (config === 'communication') {
@@ -32,19 +32,28 @@
         }
 
         vm.initComm = function () {
-                vm.title = 'Team Communication';
-                vm.commVisible = true;
-                vm.tabs = [{
-                    label: "Questions",
-                    group: "questions"
+            vm.title = 'Team Communication';
+            vm.commVisible = true;
+            vm.tabs = [{
+                label: "Questions",
+                group: "questions"
                     }, {
-                    label: "Check-Ins",
-                    group: "checkins"
+                label: "Check-Ins",
+                group: "checkins"
                     }, {
-                    label: "Messages",
-                    group: "messages"
+                label: "Messages",
+                group: "messages"
                     }]
-            }
-            // enter array for ng-repeat for dynamic tabs
+        }
+
+        vm.initTreat = function () {
+            vm.title = 'Common Treatments';
+            vm.treatVisible = true;
+            vm.tabs = treatments;
+            vm.tabs.forEach(function (tab) {
+                tab.label = tab.title;
+            });
+        }
+
     }
 })();
