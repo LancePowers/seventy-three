@@ -1,4 +1,5 @@
-var config = require('../../_config');
+var config = require('../../_config' || '../altConfig');
+
 var client = require('twilio')(config.TWILIO_SID, config.TWILIO_TOKEN);
 var User = require('../models/user.js');
 

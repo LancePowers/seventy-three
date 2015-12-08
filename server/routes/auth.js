@@ -5,7 +5,7 @@ var jwt = require('jwt-simple');
 var request = require('request');
 var qs = require('querystring');
 
-var config = require('../../_config');
+var config = require('../../_config' || '../altConfig');
 var User = require('../models/user.js');
 
 
