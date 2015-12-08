@@ -25,7 +25,7 @@ angular.module('app').config(function ($mdThemingProvider) {
         '200': '#449247',
         '300': '#3c813f',
         '400': '#346f36',
-        '500': '2C5E2E',
+        '500': '#2C5E2E',
         '600': '#244d25',
         '700': '#1c3b1d',
         '800': '#142a14',

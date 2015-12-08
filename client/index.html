@@ -34,18 +34,19 @@
     <div ng-controller="navbarCtrl">
         <!-- Navigation -->
         <md-toolbar class="nav-shadow" role="navigation">
-            <div class="md-toolbar-tools">
 
-                <md-button class="md-fab md-mini" ng-if="!isAuthenticated()" aria-label="home" href="#/">
+            <div class="md-toolbar-tools main-nav-tools">
+                <br>
+                <md-button class="md-fab md-mini md-whiteframe-12dp" ng-if="!isAuthenticated()" aria-label="home" href="#/">
                     <md-icon md-svg-src="img/icons/home.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini" ng-if="isAuthenticated()" aria-label="home" href="#/home">
+                <md-button class="md-fab md-mini md-whiteframe-12dp" ng-if="isAuthenticated()" aria-label="home" href="#/home">
                     <md-icon md-svg-src="img/icons/home.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini" ng-if="!isAuthenticated()" aria-label="login" href="#/login">
+                <md-button class="md-fab md-mini md-whiteframe-12dp" ng-if="!isAuthenticated()" aria-label="login" href="#/login">
                     <md-icon md-svg-src="img/icons/login.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini" ng-if="isAuthenticated()" aria-label="logout" ng-click="logout()" href="">
+                <md-button class="md-fab md-mini md-whiteframe-12dp" ng-if="isAuthenticated()" aria-label="logout" ng-click="logout()" href="">
                     <md-icon md-svg-src="img/icons/logout.svg"></md-icon>
                 </md-button>
             </div>
