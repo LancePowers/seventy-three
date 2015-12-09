@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="components/commentForm/commentForm.css">
     <link rel="stylesheet" type="text/css" href="components/inviteForm/inviteForm.css">
     <link rel="stylesheet" type="text/css" href="components/survivors/survivors.css">
+    <link rel="stylesheet" type="text/css" href="components/group/group.css">
 
 
 </head>
@@ -34,20 +35,21 @@
 
     <div ng-controller="navbarCtrl">
         <!-- Navigation -->
-        <md-toolbar class="nav-shadow" role="navigation">
+        <md-toolbar role="navigation">
 
             <div class="md-toolbar-tools main-nav-tools">
+                <span flex="80"></span>
                 <br>
-                <md-button class="md-fab md-mini md-whiteframe-12dp" ng-if="!isAuthenticated()" aria-label="home" href="#/">
+                <md-button class="md-whiteframe-12dp md-accent md-hue-1" ng-if="!isAuthenticated()" aria-label="home" href="#/">
                     <md-icon md-svg-src="img/icons/home.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini md-whiteframe-12dp" ng-if="isAuthenticated()" aria-label="home" href="#/home">
+                <md-button class="md-whiteframe-12dp md-accent md-hue-1" ng-if="isAuthenticated()" aria-label="home" href="#/home">
                     <md-icon md-svg-src="img/icons/home.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini md-whiteframe-12dp" ng-if="!isAuthenticated()" aria-label="login" href="#/login">
+                <md-button class="md-whiteframe-12dp md-accent md-hue-1" ng-if="!isAuthenticated()" aria-label="login" href="#/login">
                     <md-icon md-svg-src="img/icons/login.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini md-whiteframe-12dp" ng-if="isAuthenticated()" aria-label="logout" ng-click="logout()" href="">
+                <md-button class="md-whiteframe-12dp md-accent md-hue-1" ng-if="isAuthenticated()" aria-label="logout" ng-click="logout()" href="">
                     <md-icon md-svg-src="img/icons/logout.svg"></md-icon>
                 </md-button>
             </div>
@@ -122,6 +124,10 @@
     <script type="text/javascript" src="components/survivors/survivors.module.js"></script>
     <script type="text/javascript" src="components/survivors/survivors.directive.js"></script>
 
+    <!--    GROUP-->
+    <script type="text/javascript" src="components/group/group.module.js"></script>
+    <script type="text/javascript" src="components/group/group.directive.js"></script>
+
     <!--    SERVICES-->
     <script type="text/javascript" src="services/user.service.js"></script>
     <script type="text/javascript" src="services/toast.service.js"></script>
@@ -129,6 +135,7 @@
     <script type="text/javascript" src="services/emoji.service.js"></script>
     <script type="text/javascript" src="services/survivors.service.js"></script>
     <script type="text/javascript" src="services/treatment.service.js"></script>
+    <script type="text/javascript" src="services/group.service.js"></script>
 
 
     <script type="text/javascript" src="controllers/navbar.js"></script>

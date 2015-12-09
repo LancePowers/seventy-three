@@ -1,10 +1,13 @@
 <div layout="column">
-    <div layout="row">
-        <chart flex="60"></chart>
-        <tab-container flex="40" class="dashboard-item" data-config="treatment"></tab-container>
+    <div layout="row" layout-xs="column" class="dashboard-row" layout-wrap layout-margin>
+        <group flex="40" class="dashboard-item"></group>
+        <tab-container flex="60" class="dashboard-item" data-config="communication"></tab-container>
     </div>
-    <div layout="row">
+    <div layout="row" layout-xs="column" class="dashboard-row" layout-padding>
+        <chart flex="40" class="dashboard-item"></chart>
+        <tab-container flex="60" class="dashboard-item" data-config="treatment"></tab-container>
+    </div>
+    <div layout="row" layout-xs="column" class="dashboard-row" layout-wrap>
         <survivors flex="60" class="dashboard-item"></survivors>
-        <tab-container flex="40" class="dashboard-item" data-config="communication"></tab-container>
     </div>
 </div>

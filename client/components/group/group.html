@@ -1,0 +1,11 @@
+<div ng-cloak class="tabsdemoDynamicHeight md-whiteframe-2dp">
+    <md-toolbar>
+        <h3 class="toolbar-light">Support Team</h3>
+    </md-toolbar>
+    <md-list-item ng-repeat="person in vm.people" ng-click="vm.goToPerson(person, $event)">
+        <img alt="{{ person.name }}" ng-src="{{ person.image }}" class="md-avatar" />
+        <p>{{ person.name }}</p>
+        <p>{{ person.role }}</p>
+
+    </md-list-item>
+</div>
