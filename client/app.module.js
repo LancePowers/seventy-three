@@ -12,7 +12,7 @@
         });
         $routeProvider
             .when('/', {
-                templateUrl: 'partials/welcome.html'
+                templateUrl: 'partials/login.html',
             })
             .when('/home', {
                 templateUrl: 'partials/home.html'

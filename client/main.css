@@ -2,21 +2,12 @@ md-toolbar {
     background-color: rgba(0, 124, 164, .2);
 }
 
-.main-nav-tools {
-    margin-left: 100px;
-}
-
-
-/*
-.nav-shadow {
-    -webkit-box-shadow: 0 10px 6px -6px #777;
-    -moz-box-shadow: 0 10px 6px -6px #777;
-    box-shadow: 0 10px 6px -6px #777;
-}
-*/
-
 #content {
     padding-top: 40px;
+}
+
+.main-nav-tools {
+    margin-left: 100px;
 }
 
 .dashboard-item {
