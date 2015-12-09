@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 
 // *** mongoose ** //
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI || process.env.MONGOLAB_URI);
 
 // *** main routes *** //
 app.use('/', mainRoutes);
