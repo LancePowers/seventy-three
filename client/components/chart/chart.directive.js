@@ -34,16 +34,16 @@
                     x: "Talk Therapy",
                     y: 1000
                     }, {
-                    x: "Medications",
-                    y: 1500
-                    }, {
                     x: "Intensive Outpatient",
                     y: 3500
                     }, {
-                    x: "Electro-Convulsive",
-                    y: 8000
+                    x: "Medications",
+                    y: 1500
                     }, {
                     x: "Inpatient",
+                    y: 8000
+                    }, {
+                    x: "Electro-Convulsive",
                     y: 8000
                     }]
             },
@@ -51,22 +51,21 @@
                 key: "Insurance",
                 color: "#51A351",
                 values: [{
-                        x: "Talk Therapy",
-                        y: 1500
+                    x: "Talk Therapy",
+                    y: 1500
                     }, {
-                        x: "Medications",
-                        y: 3500
+                    x: "Intensive Outpatient",
+                    y: 5000
                     }, {
-                        x: "Intensive Outpatient",
-                        y: 5000
+                    x: "Medications",
+                    y: 3500
                     }, {
-                        x: "Electro-Convulsive",
-                        y: 9000
-                    },
-                    {
-                        x: "Inpatient",
-                        y: 13000
-                        }, ]
+                    x: "Inpatient",
+                    y: 13000
+                    }, {
+                    x: "Electro-Convulsive",
+                    y: 9000
+                    }]
             }]).transition().duration(500).call(vm.chart);
 
     }

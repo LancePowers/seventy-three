@@ -70,6 +70,7 @@ router.post('/signup', function (req, res) {
             last: req.body.last,
             phone: req.body.phone,
             role: req.body.role,
+            patient: req.body.patient,
             firstLogin: true
         });
 
