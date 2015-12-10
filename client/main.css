@@ -1,3 +1,8 @@
+.dashboard {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
 md-toolbar {
     background-color: rgba(0, 124, 164, .2);
 }
@@ -6,15 +11,24 @@ md-toolbar {
     padding-top: 40px;
 }
 
-/*
-.main-nav-tools {
-    margin: 100px;
+.nav-title {
+    font-variant: small-caps;
+    color: rgba(255, 255, 255, .7);
 }
-*/
 
+.main-nav-tools {
+    color: rgba(255, 255, 255, .7);
+}
+
+.nav-logo {
+    height: 36px;
+}
+
+
+/*
 .dashboard-row {
     max-height: 550px;
-}
+}*/
 
 .dashboard-item {
     padding: 10px;

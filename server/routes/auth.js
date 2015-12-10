@@ -70,9 +70,13 @@ router.post('/signup', function (req, res) {
             last: req.body.last,
             phone: req.body.phone,
             role: req.body.role,
-            firstLogin: req.body.firstLogin
+            firstLogin: true
         });
-        user.save(function () {
+
+        user.save(function (err) {
+            if (err) {
+                res.send(err)
+            }
             var token = createToken(user);
             res.send({
                 token: token,

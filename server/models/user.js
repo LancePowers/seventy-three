@@ -48,9 +48,8 @@ User.pre('save', function (next) {
     if (!user.isModified('password')) return next();
 
     // generate salt
-    bcrypt.genSalt(process.env.SALT_WORK_FACTOR, function (err, salt) {
+    bcrypt.genSalt(10, function (err, salt) {
         if (err) return next(err);
-
         // hash the password along with the salt
         bcrypt.hash(user.password, salt, function (err, hash) {
             if (err) return next(err);

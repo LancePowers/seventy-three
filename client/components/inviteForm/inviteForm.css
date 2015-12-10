@@ -4,6 +4,7 @@
 
 .toolbar-light {
     color: rgba(256, 256, 256, .9);
+    padding-left: 10px;
 }
 
 .add-pad {
