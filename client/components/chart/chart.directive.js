@@ -35,7 +35,7 @@
                     y: 1000
                     }, {
                     x: "Intensive Outpatient",
-                    y: 3500
+                    y: 7500
                     }, {
                     x: "Medications",
                     y: 1500
