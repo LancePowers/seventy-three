@@ -1,14 +1,7 @@
-# MEAN Social Token Auth
+# Seventy-Three
 
-- [MongoDB](http://www.mongodb.org/)
-- [Express](http://expressjs.com/)
-- [AngularJS](https://angularjs.org/)
-- [Node.js](http://nodejs.org)
-- [Satellizer](https://github.com/sahat/satellizer)
+Seventy Three is a dashboard of tools for family and friends of individuals under a 72 hour hold, following a suicide attempt. It enables supporters to assemble a support team, facilitate Q&A with professionals, share check-ins, learn about treatments, insurance coverage, success stories, and more.
 
-1. Clone
-1. npm i
-1. add the social auth code
-1.
-1.
-1.
+Built on the MEAN stack, I paid particular attention to creating a component based, custom directive structure that is easily expandable, adaptable and ready for Angular 2.0. I was excited to use Twilio’s messaging API for communication as well as Angular Material and D3.js for the visuals.
+
+Technologies: MongoDB, Angular, Express, NodeJS, Twilio API, D3.js, Satellizer Token-Based Authentication for Local and Google Auth Support
