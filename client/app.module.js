@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app', ['ngRoute', 'satellizer', 'ngMaterial', 'app.components', 'ngMdIcons'])
+    angular.module('app', ['ngRoute', 'satellizer', 'ngMaterial', 'app.components', 'ngMdIcons', 'youtube-embed'])
 
     .config(function ($routeProvider, $authProvider, $locationProvider, $mdThemingProvider) {
         // *** satellizer settings *** //

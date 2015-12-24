@@ -16,10 +16,17 @@
     }
 
 
-    SurvivorsController.$inject = ['survivors'];
+    SurvivorsController.$inject = ['survivors', '$scope'];
 
-    function SurvivorsController(survivors) {
+    function SurvivorsController(survivors, $scope) {
         var vm = this;
         vm.survivors = survivors;
+
+        vm.play = function (player) {
+            player.playVideo()
+        }
+
+
+
     }
 })();

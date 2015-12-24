@@ -4,7 +4,6 @@
         .directive('chart', [chartDirective]);
 
     function chartDirective() {
-        console.log('here')
         return {
             restrict: 'E',
             templateUrl: 'components/chart/chart.html',
@@ -20,7 +19,6 @@
 
     function ChartController() {
         var vm = this;
-        console.log('chart controller')
 
         vm.title = "Insurance Report"
         vm.chart = nv.models.multiBarChart();

@@ -3,7 +3,8 @@
         <h3 class="toolbar-light">Survivor Success</h3>
     </md-toolbar>
     <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="5" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
-        <md-grid-tile class="grid-image" ng-repeat="survivor in vm.survivors" md-rowspan="{{survivor.span.row}}" md-colspan="{{survivor.span.col}}" md-colspan-sm="1" ng-style="{'background-image': 'url('+survivor.background+')'}">
+        <md-grid-tile class="grid-image" md-rowspan="{{survivor.span.row}}" md-colspan="{{survivor.span.col}}" md-colspan-sm="1" ng-style="{'background-image': 'url('+survivor.background+')'}" ng-repeat="survivor in vm.survivors" ng-mouseover="survivor.player.unMute()" ng-mouseout="survivor.player.mute()">
+            <youtube-video video-url="survivor.video" player-vars="survivor.vars" player="survivor.player" player-height="'100%'"></youtube-video>
             <md-tooltip>{{survivor.advice}}</md-tooltip>
             <md-grid-tile-footer>
                 <h3>{{survivor.name}}</h3>

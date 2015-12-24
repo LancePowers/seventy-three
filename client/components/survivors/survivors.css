@@ -28,4 +28,5 @@
 
 .survivors-grid .grid-image {
     background-size: cover;
+    overflow: hidden;
 }
