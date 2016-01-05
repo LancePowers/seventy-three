@@ -19,10 +19,11 @@
         controller.init(attrs.config);
     }
 
-    TabContainerController.$inject = ['treatments'];
+    TabContainerController.$inject = ['treatments', 'healthFacilities'];
 
-    function TabContainerController(treatments) {
+    function TabContainerController(treatments, healthFacilities) {
         var vm = this;
+        vm.healthFacilities = healthFacilities;
         vm.init = function (config) {
             if (config === 'communication') {
                 vm.initComm();
